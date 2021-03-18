@@ -68,16 +68,6 @@
     "zuul-builder-webpack": "^1.2.0",
     "zuul-ngrok": "4.0.0"
   },
-  "scripts": {
-    "compile": "rimraf ./build && tsc",
-    "test": "npm run format:check && npm run compile && if test \"$BROWSERS\" = \"1\" ; then npm run test:browser; else npm run test:node; fi",
-    "test:node": "mocha --require ts-node/register --reporter dot --require test/support/server.js test/index.js",
-    "test:browser": "zuul test/index.js",
-    "build": "npm run compile && webpack --config ./support/webpack.config.js --config ./support/prod.config.js --config ./support/msgpack-parser.config.js",
-    "format:check": "prettier --check \"lib/**/*.ts\" \"test/**/*.js\" \"test/**/*.ts\" \"support/**/*.js\"",
-    "format:fix": "prettier --write \"lib/**/*.ts\" \"test/**/*.js\" \"test/**/*.ts\" \"support/**/*.js\"",
-    "prepack": "npm run compile"
-  },
   "contributors": [
     {
       "name": "Guillermo Rauch",
